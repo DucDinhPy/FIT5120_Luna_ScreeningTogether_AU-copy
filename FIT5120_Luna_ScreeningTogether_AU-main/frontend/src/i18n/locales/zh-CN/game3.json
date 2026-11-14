@@ -1,0 +1,44 @@
+{
+  "aria": {
+    "gameFrame": "Luna 的宫颈筛查预约｜第 3 阶段",
+    "fullscreenExit": "退出全屏",
+    "fullscreenOpen": "全屏打开游戏",
+    "variantPicker": "游戏 3 测试版本"
+  },
+  "iframe": {
+    "title": "与 Luna 共度几分钟"
+  },
+  "variant": {
+    "description": "选择一个版本。切换版本会重新开始预约流程。",
+    "animation": "A · 时钟动画",
+    "puzzle": "B · 图片拼图"
+  },
+  "intro": {
+    "label": "宫颈筛查历程 | 第 3 阶段",
+    "title": "筛查时会发生什么？",
+    "description": "陪伴 Luna 参加预约，了解她的筛查选择，并体验采集样本的过程可以多快完成。"
+  },
+  "gameStart": {
+    "eyebrowGame3": "第 3 阶段 · 宫颈筛查历程"
+  },
+  "learning": {
+    "label": "你将了解",
+    "choices": {
+      "title": "选择与自主权",
+      "description": "帮助 Luna 讨论以往的筛查经历、样本采集选项，以及如何要求暂停或停止。"
+    },
+    "minutes": {
+      "title": "只需几分钟",
+      "animationDescription": "观察时钟，了解采集样本期间时间如何流逝。",
+      "puzzleDescription": "玩图片拼图，最多两分钟，体验采集样本期间时间流逝的感觉。"
+    },
+    "after": {
+      "title": "筛查之后",
+      "description": "了解样本会如何处理，以及通常何时需要再次接受筛查。"
+    }
+  },
+  "navigation": {
+    "previousGame": "候诊室听力练习",
+    "cervicalResults": "了解宫颈筛查结果"
+  }
+}

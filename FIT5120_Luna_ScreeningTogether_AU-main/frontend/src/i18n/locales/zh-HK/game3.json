@@ -1,0 +1,44 @@
+{
+  "aria": {
+    "gameFrame": "Luna 的子宮頸篩查預約｜第 3 階段",
+    "fullscreenExit": "退出全螢幕",
+    "fullscreenOpen": "以全螢幕開啟遊戲",
+    "variantPicker": "遊戲 3 測試版本"
+  },
+  "iframe": {
+    "title": "與 Luna 共度幾分鐘"
+  },
+  "variant": {
+    "description": "選擇一個版本。切換版本會重新開始預約流程。",
+    "animation": "A · 時鐘動畫",
+    "puzzle": "B · 圖片拼圖"
+  },
+  "intro": {
+    "label": "子宮頸篩查歷程 | 第 3 階段",
+    "title": "篩查時會發生甚麼事？",
+    "description": "陪伴 Luna 進行預約，了解她的篩查選擇，並體驗採集樣本的過程可以多快完成。"
+  },
+  "gameStart": {
+    "eyebrowGame3": "第 3 階段 · 子宮頸篩查歷程"
+  },
+  "learning": {
+    "label": "你將會學到",
+    "choices": {
+      "title": "選擇與自主權",
+      "description": "協助 Luna 討論以往的篩查經驗、樣本採集選項，以及如何要求暫停或停止。"
+    },
+    "minutes": {
+      "title": "只需幾分鐘",
+      "animationDescription": "觀看時鐘，了解採集樣本期間時間如何流逝。",
+      "puzzleDescription": "玩圖片拼圖，最多兩分鐘，體驗採集樣本期間時間流逝的感覺。"
+    },
+    "after": {
+      "title": "篩查之後",
+      "description": "了解樣本會如何處理，以及通常何時需要再次接受篩查。"
+    }
+  },
+  "navigation": {
+    "previousGame": "候診室聆聽練習",
+    "cervicalResults": "了解子宮頸篩查結果"
+  }
+}

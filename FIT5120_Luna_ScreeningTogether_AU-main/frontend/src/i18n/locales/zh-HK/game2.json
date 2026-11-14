@@ -1,0 +1,37 @@
+{
+  "page": {
+    "ariaLabel": "遊戲 2：候診室聆聽練習",
+    "iframeTitle": "候診室聆聽練習",
+    "fullscreenOpen": "以全螢幕開啟遊戲",
+    "fullscreenExit": "退出全螢幕"
+  },
+  "intro": {
+    "label": "子宮頸篩查預約 | 第 2 階段",
+    "title": "留意叫到你的名字",
+    "description": "練習在繁忙的候診室保持留意，辨認何時有人叫你的名字，並在等候期間了解實用的支援資訊。"
+  },
+  "gameStart": {
+    "eyebrowGame2": "第 2 階段 · 子宮頸篩查預約"
+  },
+  "howToPlay": {
+    "label": "玩法說明",
+    "steps": {
+      "watchAndListen": {
+        "title": "看清楚並聆聽",
+        "description": "名字會逐一出現在藍色的叫號屏幕上。"
+      },
+      "respondInTime": {
+        "title": "及時回應",
+        "description": "只有當你的全名出現時，才選擇「是我」。"
+      },
+      "exploreWhileWaiting": {
+        "title": "等候時探索",
+        "description": "尋找有用的物品和資訊，完成可選的支線任務。"
+      }
+    }
+  },
+  "navigation": {
+    "game1": "跨越污名",
+    "game3": "Luna 的子宮頸篩查預約"
+  }
+}

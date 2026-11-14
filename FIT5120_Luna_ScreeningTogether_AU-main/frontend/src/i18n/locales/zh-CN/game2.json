@@ -1,0 +1,37 @@
+{
+  "page": {
+    "ariaLabel": "游戏 2：候诊室听力练习",
+    "iframeTitle": "候诊室听力练习",
+    "fullscreenOpen": "全屏打开游戏",
+    "fullscreenExit": "退出全屏"
+  },
+  "intro": {
+    "label": "宫颈筛查预约 | 第 2 阶段",
+    "title": "留意是否叫到你的名字",
+    "description": "练习在繁忙的候诊室保持注意，辨认何时有人叫你的名字，并在等待期间了解实用的支持信息。"
+  },
+  "gameStart": {
+    "eyebrowGame2": "第 2 阶段 · 宫颈筛查预约"
+  },
+  "howToPlay": {
+    "label": "游戏玩法",
+    "steps": {
+      "watchAndListen": {
+        "title": "观察并聆听",
+        "description": "名字会一次一个地显示在蓝色叫号屏幕上。"
+      },
+      "respondInTime": {
+        "title": "及时回应",
+        "description": "只有在你的全名出现时，才选择“是我”。"
+      },
+      "exploreWhileWaiting": {
+        "title": "等待时探索",
+        "description": "寻找有用的物品和信息，完成可选的支线任务。"
+      }
+    }
+  },
+  "navigation": {
+    "game1": "跨越污名",
+    "game3": "Luna 的宫颈筛查预约"
+  }
+}

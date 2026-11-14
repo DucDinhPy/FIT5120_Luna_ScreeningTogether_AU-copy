@@ -1,0 +1,629 @@
+.game-play-page {
+  background: #fffaf8;
+  color: #302a2d;
+}
+
+/* Main desktop layout */
+.game-stage {
+  height: calc(100dvh - 78px);
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.game-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 28px;
+  padding: 58px 8% 34px;
+  background: #fffaf8;
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #b06b70;
+  font-weight: 700;
+  margin: 0 0 20px;
+}
+
+.game-side-copy h1 {
+  font-size: clamp(50px, 5.5vw, 78px);
+  letter-spacing: -0.065em;
+  line-height: 0.95;
+  margin: 0 0 18px;
+}
+
+.game-side-copy > p:last-child {
+  font-size: 14px;
+  color: #8b7e80;
+  line-height: 1.6;
+  max-width: 390px;
+  margin: 0;
+}
+
+/* Game switcher */
+.game-switcher {
+  display: flex;
+  gap: 18px;
+  margin-top: 0;
+}
+
+.game-switcher button {
+  height: 24px;
+  width: 24px;
+  border: 1px solid #302a2d;
+  border-radius: 50%;
+  background: transparent;
+  color: #302a2d;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0;
+}
+
+.game-switcher button.active {
+  background: #302a2d;
+  color: #fffaf8;
+}
+
+/* Game frame */
+.game-frame {
+  background: #f1f0f0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.game-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.game-placeholder {
+  text-align: center;
+  color: #302a2d;
+}
+
+.game-kicker {
+  display: block;
+  color: #b06b70;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.game-placeholder h2 {
+  font-size: clamp(55px, 8vw, 108px);
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+  margin: 0;
+}
+
+.game-placeholder p {
+  font-size: 11px;
+  color: #9c9292;
+  margin-top: 18px;
+}
+
+/* Fullscreen button */
+.fullscreen-button {
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fffaf8;
+  border: 0;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #302a2d;
+  box-shadow: 0 3px 12px #302a2d18;
+}
+
+.expand-icon {
+  display: block;
+  position: relative;
+  width: 14px;
+  height: 14px;
+  background:
+    linear-gradient(currentColor, currentColor) 0 0 / 6px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) 0 0 / 1.5px 6px no-repeat,
+    linear-gradient(currentColor, currentColor) 100% 0 / 6px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) 100% 0 / 1.5px 6px no-repeat,
+    linear-gradient(currentColor, currentColor) 0 100% / 6px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) 0 100% / 1.5px 6px no-repeat,
+    linear-gradient(currentColor, currentColor) 100% 100% / 6px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) 100% 100% / 1.5px 6px no-repeat;
+}
+
+/* How to play */
+.how-to-play {
+  display: block;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.how-to-play > .section-label {
+  font-size: 11px;
+  margin: 0 0 16px;
+}
+
+.how-to-play h2 {
+  font-size: clamp(38px, 4vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.055em;
+  margin: 0;
+}
+
+.how-to-play em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  color: #a75d68;
+}
+
+.guide-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.guide-steps article {
+  background: #fffaf8;
+  padding: 16px;
+  min-height: 132px;
+}
+
+.guide-steps span {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #b06b70;
+}
+
+.guide-steps h3 {
+  font-size: 14px;
+  margin: 18px 0 8px;
+}
+
+.guide-steps p {
+  color: #806f70;
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Continue to Game 3 */
+.game-navigation-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.game-navigation-links .next-game-link {
+  margin-top: 0;
+}
+
+.next-game-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: min(100%, 310px);
+  margin-top: 8px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: #302a2d;
+  color: #fffaf8;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.next-game-link:hover {
+  background: #8e4f59;
+  color: #fffaf8;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.next-game-link:visited {
+  color: #fffaf8;
+  text-decoration: none;
+}
+
+.next-game-link span {
+  font-size: 18px;
+}
+
+
+/* Tablet */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .game-stage {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .game-side {
+    padding: 44px 7% 28px;
+  }
+
+  .game-side-copy h1 {
+    font-size: clamp(44px, 5vw, 62px);
+  }
+
+  .game-side-copy > p:last-child {
+    font-size: 11px;
+  }
+
+  .guide-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .guide-steps article {
+    padding: 12px;
+    min-height: 120px;
+  }
+
+  .guide-steps h3 {
+    font-size: 12px;
+    margin: 12px 0 6px;
+  }
+
+  .guide-steps p {
+    font-size: 9px;
+  }
+
+  .game-placeholder h2 {
+    font-size: clamp(54px, 9vw, 90px);
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 760px) {
+  .game-play-page {
+    min-height: 0;
+  }
+
+  .game-stage {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .game-side {
+    min-height: 0;
+    padding: 34px 24px 20px;
+    gap: 20px;
+  }
+
+  .game-side-copy h1 {
+    font-size: 40px;
+  }
+
+  .game-side-copy > p:last-child {
+    font-size: 12px;
+  }
+
+  .game-frame {
+    height: min(58vh, 420px);
+    min-height: 300px;
+  }
+
+  .fullscreen-button {
+    right: 16px;
+    bottom: 14px;
+  }
+
+  .how-to-play {
+    margin-top: 0;
+  }
+
+  .how-to-play > .section-label {
+    margin-bottom: 6px;
+  }
+
+  .guide-steps {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .guide-steps article {
+    min-height: 0;
+    padding: 9px 11px;
+  }
+
+  .guide-steps h3 {
+    font-size: 12px;
+    margin: 6px 0 3px;
+  }
+
+  .guide-steps p {
+    font-size: 9px;
+  }
+
+  .game-switcher {
+    margin-top: 8px;
+  }
+
+  .next-game-link {
+    margin-top: 8px;
+  }
+}
+
+
+
+/* ==================================================
+   Game Play Page: Theme Support
+   Append below the existing CSS
+   ================================================== */
+
+/* Blush theme */
+.site-shell.theme-blush .game-play-page {
+  background: #fffaf8;
+  color: #302a2d;
+}
+
+.site-shell.theme-blush .game-side {
+  background: #fffaf8;
+}
+
+.site-shell.theme-blush .section-label,
+.site-shell.theme-blush .game-kicker,
+.site-shell.theme-blush .guide-steps span {
+  color: #b06b70;
+}
+
+.site-shell.theme-blush .game-side-copy > p:last-child {
+  color: #8b7e80;
+}
+
+.site-shell.theme-blush .game-switcher button {
+  border-color: #302a2d;
+  color: #302a2d;
+}
+
+.site-shell.theme-blush .game-switcher button.active {
+  background: #302a2d;
+  color: #fffaf8;
+}
+
+.site-shell.theme-blush .game-frame {
+  background: #f1f0f0;
+}
+
+.site-shell.theme-blush .game-placeholder {
+  color: #302a2d;
+}
+
+.site-shell.theme-blush .game-placeholder p {
+  color: #9c9292;
+}
+
+.site-shell.theme-blush .fullscreen-button {
+  background: #fffaf8;
+  color: #302a2d;
+}
+
+.site-shell.theme-blush .how-to-play em {
+  color: #a75d68;
+}
+
+.site-shell.theme-blush .guide-steps article {
+  background: #fff1ef;
+  border: 1px solid #eadfdb;
+}
+
+.site-shell.theme-blush .guide-steps h3 {
+  color: #302a2d;
+}
+
+.site-shell.theme-blush .guide-steps p {
+  color: #806f70;
+}
+
+.site-shell.theme-blush .next-game-link {
+  background: #302a2d;
+  color: #fffaf8;
+}
+
+.site-shell.theme-blush .next-game-link:hover {
+  background: #8e4f59;
+  color: #fffaf8;
+}
+
+
+/* Teal theme */
+.site-shell.theme-teal .game-play-page {
+  background: #f3fbfa;
+  color: #123b3c;
+}
+
+.site-shell.theme-teal .game-side {
+  background: #f3fbfa;
+}
+
+.site-shell.theme-teal .section-label,
+.site-shell.theme-teal .game-kicker,
+.site-shell.theme-teal .guide-steps span {
+  color: #087b78;
+}
+
+.site-shell.theme-teal .game-side-copy > p:last-child {
+  color: #496b68;
+}
+
+.site-shell.theme-teal .game-switcher button {
+  border-color: #123b3c;
+  color: #123b3c;
+}
+
+.site-shell.theme-teal .game-switcher button.active {
+  background: #087b78;
+  border-color: #087b78;
+  color: #ffffff;
+}
+
+.site-shell.theme-teal .game-frame {
+  background: #e4f2ef;
+}
+
+.site-shell.theme-teal .game-placeholder {
+  color: #123b3c;
+}
+
+.site-shell.theme-teal .game-placeholder p {
+  color: #64817d;
+}
+
+.site-shell.theme-teal .fullscreen-button {
+  background: #f3fbfa;
+  color: #123b3c;
+}
+
+.site-shell.theme-teal .how-to-play em {
+  color: #087b78;
+}
+
+.site-shell.theme-teal .guide-steps article {
+  background: #e6f5f2;
+  border: 1px solid #b8ded9;
+}
+
+.site-shell.theme-teal .guide-steps h3 {
+  color: #123b3c;
+}
+
+.site-shell.theme-teal .guide-steps p {
+  color: #496b68;
+}
+
+.site-shell.theme-teal .next-game-link {
+  background: #087b78;
+  color: #ffffff;
+}
+
+.site-shell.theme-teal .next-game-link:hover {
+  background: #065f5c;
+  color: #ffffff;
+}
+
+
+/* Accessible theme */
+.site-shell.theme-accessible .game-play-page {
+  background: #fffdf3;
+  color: #14213d;
+}
+
+.site-shell.theme-accessible .game-side {
+  background: #fffdf3;
+}
+
+.site-shell.theme-accessible .section-label,
+.site-shell.theme-accessible .game-kicker,
+.site-shell.theme-accessible .guide-steps span {
+  color: #145da0;
+}
+
+.site-shell.theme-accessible .game-side-copy > p:last-child {
+  color: #344b63;
+}
+
+.site-shell.theme-accessible .game-switcher button {
+  border-color: #14213d;
+  color: #14213d;
+}
+
+.site-shell.theme-accessible .game-switcher button.active {
+  background: #145da0;
+  border-color: #145da0;
+  color: #ffffff;
+}
+
+.site-shell.theme-accessible .game-frame {
+  background: #e8f0fa;
+}
+
+.site-shell.theme-accessible .game-placeholder {
+  color: #14213d;
+}
+
+.site-shell.theme-accessible .game-placeholder p {
+  color: #465a73;
+}
+
+.site-shell.theme-accessible .fullscreen-button {
+  background: #ffffff;
+  color: #14213d;
+  border: 1px solid #a8c7df;
+}
+
+.site-shell.theme-accessible .how-to-play em {
+  color: #145da0;
+}
+
+.site-shell.theme-accessible .guide-steps article {
+  background: #edf4fb;
+  border: 1px solid #a8c7df;
+}
+
+.site-shell.theme-accessible .guide-steps h3 {
+  color: #14213d;
+}
+
+.site-shell.theme-accessible .guide-steps p {
+  color: #344b63;
+}
+
+.site-shell.theme-accessible .next-game-link {
+  background: #145da0;
+  color: #ffffff;
+}
+
+.site-shell.theme-accessible .next-game-link:hover {
+  background: #0d467b;
+  color: #ffffff;
+}
+
+
+/* Consistent focus visibility across themes */
+.site-shell .game-switcher button:focus-visible,
+.site-shell .fullscreen-button:focus-visible,
+.site-shell .next-game-link:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Smooth theme transitions */
+.game-play-page,
+.game-side,
+.game-frame,
+.game-placeholder,
+.game-placeholder p,
+.guide-steps article,
+.guide-steps h3,
+.guide-steps p,
+.game-switcher button,
+.fullscreen-button,
+.next-game-link {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
