@@ -218,11 +218,56 @@
     </div>
 
     <button
+      ref="supportChatTrigger"
+      class="accessibility-trigger support-chat-trigger"
+      type="button"
+      :aria-label="t('supportChat.title')"
+      :aria-expanded="supportChatOpen"
+      aria-controls="support-chat-popup"
+      @click="toggleSupportChat(!supportChatOpen)"
+    >
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M20.5 11a7 7 0 0 1-7 7h-3l-5.5 3v-5.5A7 7 0 0 1 10 4h3.5a7 7 0 0 1 7 7Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linejoin="round"
+        />
+        <path d="M8 11h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+      </svg>
+    </button>
+    <aside
+      v-show="supportChatOpen"
+      id="support-chat-popup"
+      class="support-chat-popup"
+      aria-labelledby="support-chat-title"
+      @keydown.esc.stop="toggleSupportChat(false)"
+    >
+      <header class="support-chat-header">
+        <div>
+          <h2 id="support-chat-title">{{ t('supportChat.title') }}</h2>
+          <p>{{ t('supportChat.intro') }}</p>
+        </div>
+        <button
+          ref="supportChatClose"
+          class="support-chat-close"
+          type="button"
+          :aria-label="t('supportChat.close')"
+          @click="toggleSupportChat(false)"
+        >
+          ×
+        </button>
+      </header>
+      <SupportChatPanel :open="supportChatOpen" />
+    </aside>
+
+    <button
       class="accessibility-trigger d-flex align-items-center justify-content-center p-0"
       type="button"
       aria-label="Open display options"
       :aria-expanded="displayOptionsOpen"
-      @click="displayOptionsOpen = !displayOptionsOpen"
+      @click="displayOptionsOpen = !displayOptionsOpen; supportChatOpen = false"
     >
       <svg
         class="w-75 h-75"
@@ -344,10 +389,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, computed, watch } from 'vue'
+import { onMounted, onUnmounted, ref, computed, nextTick, watch } from 'vue'
 import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router'
 import { useTranslation } from './i18n/useTranslation'
 import IterationAuthModal from './components/IterationAuthModal.vue'
+import SupportChatPanel from './components/SupportChatPanel.vue'
 
 const menuOpen = ref(window.innerWidth > 900)
 const isMobile = ref(window.innerWidth <= 900)
@@ -513,6 +559,25 @@ type ThemeName = 'blush' | 'teal' | 'accessible'
 type TextSize = 'normal' | 'larger' | 'largest'
 
 const displayOptionsOpen = ref(false)
+const supportChatOpen = ref(false)
+const supportChatTrigger = ref<HTMLButtonElement>()
+const supportChatClose = ref<HTMLButtonElement>()
+
+async function toggleSupportChat(open: boolean) {
+  supportChatOpen.value = open
+  if (open) displayOptionsOpen.value = false
+  await nextTick()
+  const focusTarget = open ? supportChatClose : supportChatTrigger
+  focusTarget.value?.focus()
+}
+
+watch(
+  () => route.query.supportChat,
+  (value) => {
+    if (value === 'open') void toggleSupportChat(true)
+  },
+  { immediate: true },
+)
 
 const selectedTheme = ref<ThemeName>('blush')
 const textSize = ref<TextSize>('normal')
@@ -2745,6 +2810,113 @@ HomeView theme support
 .site-shell .game-start-modal button:focus-visible {
   outline: 3px solid currentColor;
   outline-offset: 3px;
+}
+
+.support-chat-trigger,
+.support-chat-popup {
+  right: auto;
+  left: 20px;
+}
+
+.support-chat-popup {
+  --chat-accent: #713d57;
+  --chat-background: #fdf8fa;
+  --chat-border: #e4d3dc;
+  --chat-muted: #64505d;
+  --chat-tint: #f5e9ef;
+  --chat-text: #352531;
+  position: fixed;
+  bottom: 84px;
+  z-index: 1199;
+  display: flex;
+  flex-direction: column;
+  width: min(420px, calc(100vw - 40px));
+  max-height: calc(100dvh - 104px);
+  overflow: auto;
+  border: 1px solid var(--chat-border);
+  border-radius: 22px;
+  background: var(--chat-background);
+  color: var(--chat-text);
+  box-shadow: 0 16px 48px #30203138;
+}
+
+.theme-teal .support-chat-popup {
+  --chat-accent: #185c54;
+  --chat-background: #f3faf8;
+  --chat-border: #bfd9d2;
+  --chat-muted: #385953;
+  --chat-tint: #e4f2ee;
+  --chat-text: #173833;
+}
+
+.theme-accessible .support-chat-popup {
+  --chat-accent: #164d86;
+  --chat-background: #f4f8ff;
+  --chat-border: #b6c8e0;
+  --chat-muted: #344b63;
+  --chat-tint: #e7effb;
+  --chat-text: #14213d;
+}
+
+.support-chat-header {
+  display: flex;
+  flex: none;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 14px 15px 16px;
+  border-bottom: 1px solid var(--chat-border);
+  background: var(--chat-tint);
+}
+
+.support-chat-header h2 {
+  margin: 0 0 4px;
+  font-family: Georgia, serif;
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.support-chat-header p {
+  margin: 0;
+  color: var(--chat-muted);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.support-chat-close {
+  flex: 0 0 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--chat-accent);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.support-chat-close:hover {
+  background: var(--chat-background);
+}
+
+.support-chat-popup :deep(button:focus-visible),
+.support-chat-popup :deep(a:focus-visible) {
+  outline: 2px solid var(--chat-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .support-chat-trigger,
+  .support-chat-popup {
+    left: 16px;
+  }
+
+  .support-chat-popup {
+    bottom: 76px;
+    width: min(420px, calc(100vw - 32px));
+    max-height: calc(100dvh - 92px);
+    border-radius: 18px;
+  }
 }
 
 </style>

@@ -1,4 +1,16 @@
 {
+  "supportChat": {
+    "close": "关闭支援聊天",
+    "title": "支援聊天",
+    "intro": "咨询澳大利亚宫颈筛查、公开统计数据或查找全科医生。",
+    "question": "您的问题",
+    "send": "发送",
+    "pending": "正在查找信息…",
+    "sources": "参考来源",
+    "page": "第 {{number}} 页",
+    "unavailable": "支援聊天暂时不可用。",
+    "error": "暂时无法回答，请重试。"
+  },
   "header": {
     "home": "首页",
     "faq": "常见问题",

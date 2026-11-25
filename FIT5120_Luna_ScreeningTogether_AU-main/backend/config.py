@@ -16,6 +16,8 @@ class Settings(BaseSettings):
     gemini_api_key: SecretStr | None = None
     gemini_live_model: str = "gemini-3.8-live"
     gemini_live_voice: str = "Kore"
+    groq_api_key: SecretStr | None = None
+    groq_chat_model: str = "openai/gpt-oss-20b"
 
     rag_pipeline_version: str = "v2-no-classifier"
 

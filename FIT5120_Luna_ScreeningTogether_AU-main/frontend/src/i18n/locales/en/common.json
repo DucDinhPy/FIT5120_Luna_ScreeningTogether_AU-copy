@@ -1,4 +1,16 @@
 {
+  "supportChat": {
+    "close": "Close support chat",
+    "title": "Support chat",
+    "intro": "Ask about cervical screening, public statistics, or finding a GP in Australia.",
+    "question": "Your question",
+    "send": "Send",
+    "pending": "Looking up information…",
+    "sources": "Sources consulted",
+    "page": "Page {{number}}",
+    "unavailable": "Support chat is temporarily unavailable.",
+    "error": "We couldn’t get an answer. Please try again."
+  },
   "header": {
     "home": "Home",
     "faq": "FAQ",

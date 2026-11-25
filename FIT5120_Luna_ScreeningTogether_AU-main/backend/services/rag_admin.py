@@ -7,7 +7,13 @@ from pydantic import BaseModel, ValidationError
 from starlette.concurrency import run_in_threadpool
 
 from config import settings
+from services.chatbot.ingestion.pdf_rag_ingestion import (
+    DocumentMetadata as SemanticDocumentMetadata,
+    PDFIngestResult,
+    SmartPDFProcessor,
+)
 from services.mock_call.rag_ingestion import (
+    DocumentLoadResult,
     DocumentMetadata,
     ingest_uploaded_document,
 )
@@ -79,27 +85,40 @@ async def handle_document_upload(
     source_url: str,
     published_at: date | None,
     password: str | None,
+    semantic: bool = False,
 ) -> DocumentUploadResponse:
     _check_password(password)
     file_name, pdf_data = await _read_pdf(file)
 
+    metadata_values = {
+        "title": title,
+        "publisher": publisher,
+        "source_url": source_url,
+        "published_at": published_at,
+    }
+    result: PDFIngestResult | DocumentLoadResult
     try:
-        metadata = DocumentMetadata(
-            title=title,
-            publisher=publisher,
-            source_url=source_url,
-            published_at=published_at,
-        )
-        result = await run_in_threadpool(
-            ingest_uploaded_document,
-            file_name=file_name,
-            pdf_data=pdf_data,
-            metadata=metadata,
-        )
+        if semantic:
+            result = await run_in_threadpool(
+                SmartPDFProcessor().ingest_uploaded_pdf,
+                file_name=file_name,
+                pdf_data=pdf_data,
+                metadata=SemanticDocumentMetadata.model_validate(metadata_values),
+            )
+            changed = True
+        else:
+            legacy_result = await run_in_threadpool(
+                ingest_uploaded_document,
+                file_name=file_name,
+                pdf_data=pdf_data,
+                metadata=DocumentMetadata.model_validate(metadata_values),
+            )
+            result = legacy_result
+            changed = legacy_result.changed
     except ValidationError as exc:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
-            detail=exc.errors(include_input=False),
+            detail=exc.errors(include_input=False, include_context=False),
         ) from exc
     except ValueError as exc:
         raise HTTPException(
@@ -115,14 +134,14 @@ async def handle_document_upload(
 
     return DocumentUploadResponse(
         document_id=result.document_id,
-        file_name=result.file_name,
-        changed=result.changed,
+        file_name=file_name,
+        changed=changed,
         page_count=result.page_count,
         indexed_chunks=result.indexed_chunks,
         filtered_chunks=result.filtered_chunks,
         message=(
             "Document indexed successfully."
-            if result.changed
+            if changed
             else "Document was already indexed; metadata was updated."
         ),
     )

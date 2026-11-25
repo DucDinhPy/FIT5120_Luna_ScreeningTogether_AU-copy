@@ -2,7 +2,7 @@ from datetime import date
 
 from fastapi import APIRouter, File, Form, Header, Response, UploadFile
 
-from services.mock_call.rag_admin import (
+from services.rag_admin import (
     DocumentUploadResponse,
     handle_document_upload,
 )
@@ -19,6 +19,7 @@ async def upload_rag_document(
     publisher: str = Form(...),
     source_url: str = Form(...),
     published_at: date | None = Form(None),
+    semantic: bool = Form(False),
     password: str | None = Header(
         default=None,
         alias="X-RAG-Admin-Key",
@@ -31,6 +32,7 @@ async def upload_rag_document(
         source_url=source_url,
         published_at=published_at,
         password=password,
+        semantic=semantic,
     )
     response.headers["Cache-Control"] = "no-store"
     return result

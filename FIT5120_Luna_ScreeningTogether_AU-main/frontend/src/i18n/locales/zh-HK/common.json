@@ -1,4 +1,16 @@
 {
+  "supportChat": {
+    "close": "關閉支援聊天",
+    "title": "支援聊天",
+    "intro": "查詢澳洲子宮頸篩查、公開統計數據或尋找家庭醫生。",
+    "question": "你的問題",
+    "send": "傳送",
+    "pending": "正在查找資料…",
+    "sources": "參考來源",
+    "page": "第 {{number}} 頁",
+    "unavailable": "支援聊天暫時未能使用。",
+    "error": "暫時未能回答，請再試。"
+  },
   "header": {
     "home": "首頁",
     "faq": "常見問題",

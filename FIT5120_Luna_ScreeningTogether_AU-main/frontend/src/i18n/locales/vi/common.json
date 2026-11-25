@@ -1,4 +1,16 @@
 {
+  "supportChat": {
+    "close": "Đóng chat hỗ trợ",
+    "title": "Chat hỗ trợ",
+    "intro": "Hỏi về tầm soát cổ tử cung, số liệu công khai hoặc tìm bác sĩ đa khoa tại Úc.",
+    "question": "Câu hỏi của bạn",
+    "send": "Gửi",
+    "pending": "Đang tra cứu thông tin…",
+    "sources": "Nguồn đã tra cứu",
+    "page": "Trang {{number}}",
+    "unavailable": "Chat hỗ trợ hiện chưa khả dụng.",
+    "error": "Chưa lấy được câu trả lời. Vui lòng thử lại."
+  },
   "header": {
     "home": "Trang chủ",
     "faq": "Câu hỏi thường gặp",

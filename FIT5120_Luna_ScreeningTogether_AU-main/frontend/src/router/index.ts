@@ -59,6 +59,10 @@ const router = createRouter({
       meta: { title: 'Call Practice | ScreeningTogether AU' },
     },
     {
+      path: '/support-chat',
+      redirect: { path: '/', query: { supportChat: 'open' } },
+    },
+    {
       path: '/resourceinfo',
       component: resourceView,
       meta: { title: 'Resources | ScreeningTogether AU' },
